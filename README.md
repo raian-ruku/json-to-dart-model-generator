@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart" />
   <img src="https://img.shields.io/badge/JSON-757574?style=for-the-badge&logo=json&logoColor=white" alt="JSON" />
-  <img src="https://img.shields.io/badge/Version-1.0.0-green?style=for-the-badge" alt="Version" />
+  <img src="https://img.shields.io/badge/Version-1.0.1-green?style=for-the-badge" alt="Version" />
 </p>
 
 ---
@@ -141,7 +141,7 @@ _Or install via VSIX: `Extensions > ... > Install from VSIX...`_
 
 ## ⚙️ Requirements
 
-- **VS Code** `v1.109.0+`
+- **VS Code** `v1.100.0+`
 - **Dart SDK** (Recommended)
 - **Equatable** package (Optional, but used in generated code)
 
