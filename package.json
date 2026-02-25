@@ -1,0 +1,35 @@
+{
+  "name": "json-to-dart-model-generator",
+  "displayName": "JSON to Dart Model Generator",
+  "description": "Generate Dart model classes from JSON — supports Post, Single Response, and List Response patterns.",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.109.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "json-to-dart-model-generator.generateModelFromJson",
+        "title": "Generate Dart Model from JSON/Query Params"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.109.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "eslint": "^9.39.2",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
