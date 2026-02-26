@@ -3,8 +3,10 @@
   "displayName": "JSON to Dart Model Generator",
   "publisher": "RaianRuku",
   "description": "Generate Dart model classes from JSON — supports Post, Single Response, and List Response patterns.",
-  "version": "1.0.1",
+  "version": "1.1.0",
+  "icon": "assets/ext-logo.png",
   "repository": "https://github.com/raian-ruku/json-to-dart-model-generator",
+  "homepage": "https://github.com/raian-ruku/json-to-dart-model-generator",
   "engines": {
     "vscode": "^1.100.0"
   },

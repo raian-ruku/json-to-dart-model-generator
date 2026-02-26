@@ -123,32 +123,73 @@ function activate(context) {
           }
         }
 
-        // ── Save as .dart file ──
-        const saveUri = await vscode.window.showSaveDialog({
-          filters: { "Dart Files": ["dart"] },
-          saveLabel: "Save Dart Model",
-        });
+        // ── Output options ──
+        const outputOption = await vscode.window.showQuickPick(
+          [
+            "$(clippy) Copy to Clipboard",
+            "$(file) Save to Current File",
+            "$(new-file) Save to New File",
+          ],
+          {
+            placeHolder: "What would you like to do with the generated model?",
+            ignoreFocusOut: true,
+          },
+        );
 
-        if (!saveUri) {
+        if (!outputOption) {
           return;
         }
 
-        let filePath = saveUri.fsPath;
-        if (!filePath.endsWith(".dart")) {
-          filePath += ".dart";
+        if (outputOption.includes("Copy to Clipboard")) {
+          await vscode.env.clipboard.writeText(generatedCode);
+          vscode.window.showInformationMessage(
+            "Dart model copied to clipboard!",
+          );
+        } else if (outputOption.includes("Save to Current File")) {
+          const editor = vscode.window.activeTextEditor;
+          if (!editor) {
+            vscode.window.showErrorMessage("No active file open to save to.");
+            return;
+          }
+          await editor.edit((editBuilder) => {
+            const fullRange = new vscode.Range(
+              editor.document.positionAt(0),
+              editor.document.positionAt(editor.document.getText().length),
+            );
+            editBuilder.replace(fullRange, generatedCode);
+          });
+          vscode.window.showInformationMessage(
+            "Dart model saved to current file!",
+          );
+        } else if (outputOption.includes("Save to New File")) {
+          const saveUri = await vscode.window.showSaveDialog({
+            filters: { "Dart Files": ["dart"] },
+            saveLabel: "Save Dart Model",
+          });
+
+          if (!saveUri) {
+            return;
+          }
+
+          let filePath = saveUri.fsPath;
+          if (!filePath.endsWith(".dart")) {
+            filePath += ".dart";
+          }
+
+          const fileUri = vscode.Uri.file(filePath);
+          const encoder = new TextEncoder();
+          await vscode.workspace.fs.writeFile(
+            fileUri,
+            encoder.encode(generatedCode),
+          );
+
+          const document = await vscode.workspace.openTextDocument(fileUri);
+          await vscode.window.showTextDocument(document);
+
+          vscode.window.showInformationMessage(
+            `Dart model saved to ${filePath}`,
+          );
         }
-
-        const fileUri = vscode.Uri.file(filePath);
-        const encoder = new TextEncoder();
-        await vscode.workspace.fs.writeFile(
-          fileUri,
-          encoder.encode(generatedCode),
-        );
-
-        const document = await vscode.workspace.openTextDocument(fileUri);
-        await vscode.window.showTextDocument(document);
-
-        vscode.window.showInformationMessage(`Dart model saved to ${filePath}`);
       } catch (error) {
         vscode.window.showErrorMessage(
           `Error generating model: ${error.message}`,

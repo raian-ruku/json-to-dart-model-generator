@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart" />
   <img src="https://img.shields.io/badge/JSON-757574?style=for-the-badge&logo=json&logoColor=white" alt="JSON" />
-  <img src="https://img.shields.io/badge/Version-1.0.1-green?style=for-the-badge" alt="Version" />
+  <img src="https://img.shields.io/badge/Version-1.1.0-green?style=for-the-badge" alt="Version" />
 </p>
 
 ---
@@ -27,6 +27,11 @@ Whether you're starting with raw JSON or URL query parameters, this extension ha
 - **🔍 Query Params to Post Model from JSON**  
   The ultimate time-saver! Paste a URL query string (`?id=1&name=test`) and get a structured Dart model.
 
+- **⚡ Flexible Output Options**
+  - **Copy to Clipboard**: Instant access to your code without saving a file.
+  - **Save to Current File**: Replaces the content of your active editor — ideal for rapid iteration.
+  - **Save to New File**: Standard flow to create and open a new `.dart` file.
+
 ---
 
 ## 🛠️ Usage
@@ -37,18 +42,21 @@ Whether you're starting with raw JSON or URL query parameters, this extension ha
    - 📥 **Post Model from JSON** &rarr; Paste JSON &rarr; Enter Class Name.
    - 📡 **Response Model from JSON** &rarr; Paste JSON &rarr; Select Single/List.
    - 🔎 **Query Params to Post Model from JSON** &rarr; Paste query string.
-4. **Save & Relax**: Choose your save location, and let the `.dart` file open automatically!
+4. **Take Action**: Select what to do with your generated code:
+   - 📋 **Copy to Clipboard**
+   - 📄 **Save to Current File**
+   - 📝 **Save to New File**
 
 ---
 
 ## 📸 Process Overview
 
-| Feature                     | Visualization                       |
-| :-------------------------- | :---------------------------------- |
-| **Post Model from JSON**    | ![Post Model](media/post_model.gif) |
-| **Response Model (Single)** | ![Single Model](media/single.gif)   |
-| **Response Model (List)**   | ![List Model](media/list.gif)       |
-| **Query Params to Model**   | ![Query Model](media/query.gif)     |
+| Feature                     | Visualization                                                                              |
+| :-------------------------- | :----------------------------------------------------------------------------------------- |
+| **Post Model from JSON**    | ![Post Model](https://github.com/raian-ruku/media-content/blob/main/list.gif?raw=true)     |
+| **Response Model (Single)** | ![Single Model](https://github.com/raian-ruku/media-content/blob/main/single.gif?raw=true) |
+| **Response Model (List)**   | ![List Model](https://github.com/raian-ruku/media-content/blob/main/list.gif?raw=true)     |
+| **Query Params to Model**   | ![Query Model](https://github.com/raian-ruku/media-content/blob/main/query.gif?raw=true)   |
 
 ---
 
@@ -144,6 +152,14 @@ _Or install via VSIX: `Extensions > ... > Install from VSIX...`_
 - **VS Code** `v1.100.0+`
 - **Dart SDK** (Recommended)
 - **Equatable** package (Optional, but used in generated code)
+
+---
+
+---
+
+## 📜 License
+
+This extension is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
 ---
 
